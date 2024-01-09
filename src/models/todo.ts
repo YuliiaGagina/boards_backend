@@ -34,7 +34,7 @@ const todoSchema: Schema = new Schema(
       type: String,
       enum: stateList,
       default: "To do",
-      required: true,
+     
     },
     cardId: {
       type: Schema.Types.ObjectId,
@@ -49,8 +49,8 @@ const addSchema = Joi.object({
   title: Joi.string().required(),
   description: Joi.string().required(),
   state: Joi.string()
-    .valueOf(...stateList)
-    .required(),
+    .valueOf(...stateList),
+    
   cardId: Joi.string().required(),
  
  

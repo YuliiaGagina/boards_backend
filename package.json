@@ -9,7 +9,7 @@
     "start": "node ./dist/app.js",
     "start2": "nodemon ./dist/app.js",
     "dev": "npm-run-all --parallel watch start2",
-    "start:dev": "./src/app.ts",
+    "start:dev": "nodemon ./src/app.ts",
     "build": "tsc"
   },
   "keywords": [],
