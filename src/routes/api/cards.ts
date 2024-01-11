@@ -9,6 +9,6 @@ const  ctrlWrapper  = require("../../helpers/ctrlWrapper");
 
 
 router.get("/",  ctrlWrapper(ctrl.getAll));
-
+router.get("/:id", ctrlWrapper(ctrl.getOne));
 
 module.exports =  router;

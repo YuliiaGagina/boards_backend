@@ -1,9 +1,11 @@
 
-const { Card}= require("../../models/card");
+const { Card } = require("../../models/card");
+const { Todo } = require("../../models/todo");
 import { RequestHandler } from "express";
 
 interface ICard extends Document {
-    name: string;
+  name: string;
+  
 }
 
 const getAll: RequestHandler<{}, {}, {}, { page?: string; limit?: string }> = async (req, res) => {
@@ -13,7 +15,9 @@ const getAll: RequestHandler<{}, {}, {}, { page?: string; limit?: string }> = as
   const result: ICard[] = await Card.find({}, "-createdAt -updatedAt", {
       skip,
       limit: +limit,
-    });
+  });
+  
+   
 
     res.json(result);
  

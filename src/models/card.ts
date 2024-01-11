@@ -20,6 +20,10 @@ const cardSchema = new Schema(
        match: [/^\d{3}$/, "Неправильний формат назви дошки"]
    
     },
+    todos: {
+      type: Array,
+
+    }
    
   },
   { versionKey: false, timestamps: true }
@@ -27,6 +31,7 @@ const cardSchema = new Schema(
 
 const joiCardSchema = Joi.object({
   name: Joi.number().required(),
+  todos: Joi.array().required(),
   
    
 });

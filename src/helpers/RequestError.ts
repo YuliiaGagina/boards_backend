@@ -14,9 +14,9 @@ const messages: Messages = {
   409: "Conflict",
 };
 
-const RequestError = (status: keyof Messages, message: string = messages[status]): { status: keyof Messages, message: string } => {
+export const RequestError = (status: keyof Messages, message: string = messages[status]): { status: keyof Messages, message: string } => {
   const error: { status: keyof Messages, message: string } = { status, message };
   return error;
 };
 
-module.exports = RequestError;
+
