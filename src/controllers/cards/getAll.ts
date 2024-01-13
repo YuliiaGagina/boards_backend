@@ -7,16 +7,8 @@ interface ICard extends Document {
 }
 
 const getAll: RequestHandler = async (req: Request, res: Response) => {
-  const { page = "1", limit = "9" } = req.query as {
-    page?: string;
-    limit?: string;
-  };
-  const skip = (parseInt(page) - 1) * parseInt(limit);
 
-  const result: ICard[] = await Card.find({}, "-createdAt -updatedAt", {
-    skip,
-    limit: +limit,
-  });
+  const result: ICard[] = await Card.find({}, "-createdAt -updatedAt", );
 
   res.status(200).json(result);
 };

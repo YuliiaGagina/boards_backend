@@ -7,7 +7,7 @@ import { errorHandler } from "./middleware/errorHandler";
 const logger = require("morgan");
 const cors = require("cors");
 
-const app = express();
+export const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(errorHandler);
@@ -41,3 +41,4 @@ app.use(() => {
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ message: err.message });
 });
+
