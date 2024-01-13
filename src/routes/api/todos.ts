@@ -9,29 +9,36 @@ const  ctrlWrapper  = require("../../helpers/ctrlWrapper");
 
 const router = Router();
 
-router.get("/forCurrent", ctrlWrapper(ctrl.getAllForCurrentCard));
+enum Routes {
+  FORCURRENT = "/forCurrent",
+  ID = "/:id", 
+  STATE = "/:id/state",
+  ADD = "/"
+}
+
+router.get(Routes.FORCURRENT, ctrlWrapper(ctrl.getAllForCurrentCard));
 
 // router.get("/myrecipes/", reloadUser, ctrlWrapper(ctrl.getAllForRecentUser));
 
 // router.get("/:id", isValidId, ctrlWrapper(ctrl.getById));
 
 router.post(
-  "/",
+  Routes.ADD,
 validateBody(schemas.addSchema),
  ctrlWrapper(ctrl.add)
 );
 
 router.put(
-  "/:id",
+  Routes.ID,
   isValidId,
   validateBody(schemas.addSchemaForChange),
   ctrlWrapper(ctrl.updateById)
 );
 
-router.delete("/:id", isValidId, ctrlWrapper(ctrl.removeById));
+router.delete(Routes.ID, isValidId, ctrlWrapper(ctrl.removeById));
 
 router.patch(
-  "/:id/state",
+  Routes.STATE,
   isValidId,
   validateBody(schemas.updateStateSchema),
   ctrlWrapper(ctrl.updateState)

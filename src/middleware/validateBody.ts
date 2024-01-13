@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { ObjectSchema, ValidationError } from "joi"; 
+import { ObjectSchema } from "joi"; 
 import HttpError from '../helpers/HttpError';
 
 const validateBody = (schema: ObjectSchema) => {
@@ -9,7 +9,7 @@ const validateBody = (schema: ObjectSchema) => {
       return next(HttpError(400, error.message as string));
     
     }
-    // Цей рядок викликатимет next лише у випадку відсутності помилки валідації
+   
     next();
   };
 

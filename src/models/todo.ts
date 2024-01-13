@@ -1,7 +1,6 @@
 import { Schema, model, Document } from "mongoose";
 const Joi = require("@hapi/joi");
-// const Joi = require("joi");
-// const Joi = require("@hapi/joi").extend(require("joi-objectid"));
+
 
 export interface ITodo extends Document {
   title: string;
