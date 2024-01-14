@@ -18,9 +18,7 @@ enum Routes {
 
 router.get(Routes.FORCURRENT, ctrlWrapper(ctrl.getAllForCurrentCard));
 
-// router.get("/myrecipes/", reloadUser, ctrlWrapper(ctrl.getAllForRecentUser));
 
-// router.get("/:id", isValidId, ctrlWrapper(ctrl.getById));
 
 router.post(
   Routes.ADD,

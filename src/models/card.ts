@@ -10,7 +10,7 @@ const cardSchema = new Schema(
     name: {
       type: Number,
       required: true,
-      match: [/^\d{3}$/, "Неправильний формат назви дошки"],
+      match: [/^\d{3}$/, "Неправильний формат назви дошки, це мають бути 3 цифри"],
     },
     todos: {
       type: Array,
@@ -21,12 +21,18 @@ const cardSchema = new Schema(
 
 const joiCardSchema = Joi.object({
   name: Joi.number().required(),
-  todos: Joi.array().required(),
+  todos: Joi.array(),
 });
+
+
+const schemas = {
+  joiCardSchema
+
+};
 
 const Card = model<ICard>("card", cardSchema);
 
 module.exports = {
   Card,
-  joiCardSchema,
+  schemas
 };
